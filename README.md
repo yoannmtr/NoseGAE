@@ -87,7 +87,7 @@ Traceback (most recent call last):
     addr.filename, addr.module)
   File "/Users/Josh/Developer/Github/jj/lib/python2.7/site-packages/nose-1.3.4-py2.7.egg/nose/importer.py", line 47, in importFromPath
     return self.importFromDir(dir_path, fqname)
-  File "/Users/Josh/Developer/Github/jj/lib/python2.7/site-packages/nose-1.3.4-py2.7.egg/nose/importer.py", line 94, in importFromDir
+  File "/Users/Josh/taDeveloper/Github/jj/lib/python2.7/site-packages/nose-1.3.4-py2.7.egg/nose/importer.py", line 94, in importFromDir
     mod = load_module(part_fqname, fh, filename, desc)
   File "/Users/Josh/Developer/Github/nosegae/examples/helloworld/test.py", line 2, in <module>
     import helloworld
@@ -272,8 +272,8 @@ class MyTest(unittest.TestCase):
         from google.appengine.api import taskqueue
         task_url = '/some/task'
         taskqueue.add(url=task_url)
-        stub = self.testbed.get_stub('taskqueue')
-        tasks = self.taskqueue_stub.get_filtered_tasks(url=task_url)
+        taskqueue_stub = self.testbed.get_stub('taskqueue')
+        tasks = taskqueue_stub.get_filtered_tasks(url=task_url)
         self.assertEqual(1, len(tasks))
         self.assertEqual(task_url, tasks[0].url)
 ```
